@@ -1,30 +1,36 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../Axios";
+import { useNavigate } from "react-router-dom";
 import DefaultProgress from "../progress/Default";
 
 export const Logout = () => {
-    useEffect(() => {
-        const action = async () => {
-            try {
-                await axiosInstance.post("/users/logout/blacklist/", {});
-                // await axiosInstance.post("/users/blacklist/", {
-                //     refresh_token: getCookie("refresh_token"),
-                // });
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-                window.location.href = "/login";
-            } catch (error) {
-                console.error("Logout error:", error);
+    useEffect(() => {
+        const logoutUser = async () => {
+            try {
+                await axiosInstance.post("/users/logout/", {}, {
+                    withCredentials: true
+                });
+
+                window.location.href = '/login';
+
+            } catch (err) {
+                navigate("/login", { replace: true });
             }
         };
 
-        action();
-    }, []);
+        logoutUser();
+    }, [navigate]);
 
-    return  <DefaultProgress sx={{width:'100%', height:'100vh', display:'flex'}} />;
+    return (
+        <div className="logout-container">
+            {error ? (
+                <div className="error-message">{error}</div>
+            ) : (
+                <DefaultProgress sx={{width:'100%', height:'100vh', display:'flex'}} />
+            )}
+        </div>
+    );
 };
-
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-}

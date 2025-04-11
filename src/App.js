@@ -26,12 +26,15 @@ import MainLoading from './component/progress/MainLoading';
 import { Error404 } from './component/no-data/Error404';
 import AccountSuspended from './component/user/AccountSuspended';
 import { AddSubscription } from './component/users/AddSubscription';
+import axiosInstance from './Axios';
 
 const theme = createTheme({
   typography: {
     fontFamily: `'Cairo', sans-serif !important`,
   },
 });
+
+const publicPaths = ["/", "/login", "/register", "/account-suspended"];
 
 function App() {
   const mode = window.localStorage.getItem('toolpad-mode');
@@ -43,6 +46,20 @@ function App() {
     window.scrollTo(0, 0);
     setLoadingPage(false);
   }, [location]);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+  
+    if (!publicPaths.includes(currentPath)) {
+      axiosInstance.get("/users/check-auth/")
+        .then((res) => {
+          console.log("✅ Authenticated:", res.data);
+        })
+        .catch((err) => {
+          console.warn("❌ Not authenticated:", err);
+        });
+    }
+  }, [location.pathname]);
 
   if (loading) return <MainLoading />;
   return (

@@ -38,7 +38,6 @@ export default function Profile() {
         setLoadingUserVisited(true);
         try {
             const response = await axiosInstance.get(`/users/profile/${params.id}/`);
-            console.log(response.data);
             setProfileData(response.data);
             setProfileDataForm({
                 full_name: response.data.full_name,
@@ -155,6 +154,7 @@ export default function Profile() {
         getVisitedUserData();
     }, [params.id]);
 
+    const courses = ["مقدمة في البرمجة", "أساسيات JavaScript", "تطوير واجهات المستخدم"];
     if (loadingUserVisited) {
         return <DefaultProgress sx={{ width: '100%', height: '80vh', display: 'flex' }} />;
     }

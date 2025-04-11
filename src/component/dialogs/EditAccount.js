@@ -1,8 +1,8 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControlLabel, Switch, TextField } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControlLabel, Switch } from '@mui/material'
 import React from 'react';
 
 export const EditAccount = (props) => {
-
+    
     return (
         <Dialog open={props.openForm} onClose={props.handleCloseForm}>
             <DialogTitle className='text-center'>تعديل الصلاحيات</DialogTitle>

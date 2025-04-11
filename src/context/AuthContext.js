@@ -10,10 +10,6 @@ export const AuthProvider = ({ children }) => {
   const location = useLocation();
 
   useEffect(() => {
-    // if(location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/") {
-    //   setLoading(false);
-    //   return;
-    // }
     axiosInstance.get("/users/check-auth/", {
       headers: {
         Authorization: `JWT ${document.cookie
