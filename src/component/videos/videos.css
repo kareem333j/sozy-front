@@ -1,0 +1,33 @@
+.video-card .video-image, 
+.video-card .no-image {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgba(187, 187, 187, 0.605);
+    overflow: hidden;
+    font-size: 0.9em;
+}
+
+.video-card .video-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.video-card .no-image {
+    color: #fff;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.video-card .no-image svg {
+    width: 35px;
+    height: 35px;
+}
+
+.video-card .no-image svg path {
+    fill: #fff;
+}

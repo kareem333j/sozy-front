@@ -1,0 +1,185 @@
+.change-avatar-btn{
+    position: absolute !important;
+    bottom: 10px;
+    right: -10px;
+    background-color: var(--main-back) !important;
+    z-index: 555;
+    box-shadow: 0px 0px 0px 1px var(--main-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.student-profile-page {
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* تأثير الظهور التدريجي */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.profile-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-section {
+    background: linear-gradient(135deg, var(--main-back), var(--main-back2));
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    border: 1px solid rgba(168, 168, 168, 0.194);
+    width: 100%;
+    direction: rtl;
+}
+.profile-section.user-main-info{
+    overflow-x: scroll;
+}
+.profile-section.user-main-info::-webkit-scrollbar {
+    height: 5px;
+}
+
+.profile-section.user-main-info::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 100px;
+}
+.devices-table{
+    background: linear-gradient(135deg, var(--main-back), var(--main-back2)) !important;
+    border: 1px solid rgba(168, 168, 168, 0.194);
+    padding: 20px 20px 0 20px;
+    position: relative;
+}
+.profile-section::before,
+.devices-table::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(114, 108, 117, 0.1) 10px,
+        rgba(118, 113, 122, 0.1) 20px
+    );
+    z-index: 0;
+}
+
+.profile-content .edit-btn{
+    border: 0;
+    outline: 0;
+    padding: 5px 20px;
+    background-color: var(--main-blue-sky);
+    color: var(--main-back);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 1;
+    direction: rtl;
+}
+
+.info-table tr {
+    border-bottom: 1px solid var(--scrollbar-color);
+    transition: background-color 0.3s ease;
+}
+.info-table tr:last-child{
+    border-bottom: 0;
+}
+
+.info-table tr:hover {
+    background-color: var(--main-hover) !important;
+}
+
+.info-table td{
+    padding: 12px 15px;
+    font-size: 1.3rem;
+    text-align: right; 
+}
+.devices-table td{
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    text-align: right; 
+}
+.devices-table th{
+    padding: 12px 15px;
+    font-size: 1.3rem;
+    text-align: right; 
+}
+
+.info-label {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.info-value {
+    color: var(--main-color);
+}
+
+
+/* courses */
+.courses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    direction: rtl; 
+}
+
+.course-item {
+    font-size: 1.1rem;
+    color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--scrollbar-color);
+    transition: background-color 0.3s ease;
+}
+
+.course-item:hover {
+    background-color: var(--main-hover) !important;
+}
+.course-item:last-child {
+    border-bottom: none;
+}
+

@@ -1,0 +1,8 @@
+.table-container::-webkit-scrollbar {
+    height: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 100px;
+}

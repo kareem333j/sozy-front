@@ -1,0 +1,19 @@
+.replies-container {
+    padding-left: 20px;
+    border-left: 2px solid var(--main-75);
+    position: relative;
+}
+
+.child-comment {
+    position: relative;
+    margin-left: 5px; 
+}
+
+.child-comment::before {
+    content: "—";
+    position: absolute;
+    left: -27px;
+    top: 10px;
+    color: var(--main-75);
+    font-weight: bold;
+}
